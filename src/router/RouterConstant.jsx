@@ -2,7 +2,8 @@ import HomePage from "../components/page/HomePage";
 import UserLayout from "../components/layout/UserLayout";
 import Login from "../components/page/Login";
 import Register from "../components/page/Register";
-import BlogPage from "../components/page/BlogPage";
+import BlogPage from "../components/page/blog/BlogPage.jsx";
+import CreateBlog from "../components/page/blog/CreateBlog.jsx";
 
 export const ROUT_DATA = [
 	{ path: "/", element: HomePage, layout: UserLayout, children: null },
@@ -24,4 +25,10 @@ export const ROUT_DATA = [
 		layout: UserLayout,
 		children: null,
 	},
+    {
+        path: "/my-blog/create",
+        element: CreateBlog,
+        layout: UserLayout,
+        children: null
+    }
 ];

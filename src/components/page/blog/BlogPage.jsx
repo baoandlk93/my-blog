@@ -1,5 +1,5 @@
 import React from "react";
-import { content } from "../../service/data";
+import { content } from "../../../service/data.js";
 
 export default function BlogPage() {
 	return (

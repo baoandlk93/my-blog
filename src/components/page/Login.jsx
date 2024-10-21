@@ -4,6 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import logo from "../../assets/logo.svg";
 function Login() {
 	const navigate = useNavigate();
 	const [username, setUsername] = useState("");
@@ -20,8 +21,8 @@ function Login() {
 	return (
 		<div className="flex justify-center items-center h-screen bg-gray-100">
 			<div className="bg-white rounded-lg shadow-lg p-8">
-				<h2 className="text-2xl font-bold text-center mb-4">
-					<span className="text-blue-500">HBA</span>-DEV
+				<h2 className="text-2xl font-bold text-center mb-4 justify-center align-middle items-center">
+                    <img src={logo} alt="" className="w-full h-24"/>
 				</h2>
 				<h3 className="text-lg font-medium text-gray-700 text-center mb-6">
 					Đăng nhập vào HBA-DEV
