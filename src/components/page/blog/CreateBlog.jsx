@@ -1,7 +1,8 @@
-import {useState} from "react";
+import { useState } from "react";
 
-export default function CreateBlog(){
+export default function CreateBlog() {
     const [blog, setBlog] = useState({
+        image: null,
         title: '',
         content: [
             {
@@ -20,6 +21,22 @@ export default function CreateBlog(){
         }));
     };
 
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setBlog({ ...blog, image: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    };
+
     const handleContentChange = (index, e) => {
         const { name, value } = e.target;
         const newContent = blog.content.map((item, i) =>
@@ -35,15 +52,52 @@ export default function CreateBlog(){
         }));
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setBlog({ ...blog, image: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Xử lý dữ liệu, ví dụ gửi đến API
         console.log(blog);
     };
+
     return (
         <div className="max-w-xl mx-auto mt-10">
             <h1 className="text-2xl font-bold mb-5">Tạo Mới Blog</h1>
             <form onSubmit={handleSubmit} className="bg-white p-6 shadow-md rounded-lg">
+                <div
+                    onDrop={handleDrop}
+                    onDragOver={handleDragOver}
+                    className="w-full h-32 flex items-center justify-center border-2 border-dashed border-gray-300 rounded mb-4"
+                >
+                    {blog.image ? (
+                        <img src={blog.image} alt="Preview" className="max-h-full" />
+                    ) : (
+                        <span>Drag and drop an image here</span>
+                    )}
+                </div>
+                <div className="mb-4">
+                    <input
+                        id="file-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="hidden"
+                    />
+                    <label
+                        htmlFor="file-upload"
+                        className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    >
+                        Chọn hình ảnh
+                    </label>
+                </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 font-semibold mb-2" htmlFor="title">
                         Tiêu đề chính
@@ -108,4 +162,4 @@ export default function CreateBlog(){
             </form>
         </div>
     );
-};
+}

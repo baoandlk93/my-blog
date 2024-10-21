@@ -26,7 +26,7 @@ export const ROUT_DATA = [
 		children: null,
 	},
     {
-        path: "/my-blog/create",
+        path: "/content-create",
         element: CreateBlog,
         layout: UserLayout,
         children: null
