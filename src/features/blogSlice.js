@@ -8,8 +8,8 @@ const initialState = {
 
 export const getBlogs = createAsyncThunk(
   "blogs",
-  async ({page}, {rejectWithValue}) => {
-    const response = await findALlBlogs({page});
+  async ({keyword}, {rejectWithValue}) => {
+    const response = await findALlBlogs({keyword});
     if (response.status !== 200) {
       return rejectWithValue(response.data.message);
     }

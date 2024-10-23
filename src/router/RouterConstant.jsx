@@ -4,30 +4,37 @@ import Login from "../components/page/Login";
 import Register from "../components/page/Register";
 import BlogPage from "../components/page/blog/BlogPage.jsx";
 import CreateBlog from "../components/page/blog/CreateBlog.jsx";
+import NewsPage from "../components/page/news/NewsPage.jsx";
 
 export const ROUT_DATA = [
-	{ path: "/", element: HomePage, layout: UserLayout, children: null },
-	{
-		path: "/login",
-		element: Login,
-		layout: null,
-		children: null,
-	},
-	{
-		path: "/register",
-		element: Register,
-		layout: null,
-		children: null,
-	},
-	{
-		path: "/blogs",
-		element: BlogPage,
-		layout: UserLayout,
-		children: null,
-	},
+    {path: "/", element: HomePage, layout: UserLayout, children: null},
+    {
+        path: "/login",
+        element: Login,
+        layout: null,
+        children: null,
+    },
+    {
+        path: "/register",
+        element: Register,
+        layout: null,
+        children: null,
+    },
+    {
+        path: "/blogs",
+        element: BlogPage,
+        layout: UserLayout,
+        children: null,
+    },
     {
         path: "/content-create",
         element: CreateBlog,
+        layout: UserLayout,
+        children: null
+    },
+    {
+        path: "/news",
+        element: NewsPage,
         layout: UserLayout,
         children: null
     }

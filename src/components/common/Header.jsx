@@ -1,8 +1,10 @@
 import React from "react";
 import {TfiSearch} from "react-icons/tfi";
-import {IoIosLogIn} from "react-icons/io";
+import {IoIosLogIn, IoMdNotificationsOutline} from "react-icons/io";
 import {Link, useNavigate} from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import {FaInfo} from "react-icons/fa";
+import {BsVectorPen} from "react-icons/bs";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -12,8 +14,8 @@ const Header = () => {
             link: "/blogs",
         },
         {
-            title: "Hỏi đáp",
-            link: "/questions",
+            title: "Tin tức",
+            link: "/news",
         },
         {
             title: "Thảo luận",
@@ -23,7 +25,6 @@ const Header = () => {
     return (
         <header className="bg-white shadow-md">
             <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-                {/* Phần bên trái */}
                 <div className="flex items-center">
                     <div className="text-yellow-500 text-xl  cursor-pointer"
                          onClick={() => navigate("/")}>
@@ -75,27 +76,27 @@ const Header = () => {
                     </div>
 
                     {/* Các icon thông báo */}
-                    {/* <div className="flex items-center ml-8 space-x-4">
-						<div className="relative">
-							<button className="p-2 rounded-full hover:bg-gray-100">
-								<FaInfo />
-							</button>
-							<span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
-								39
-							</span>
-						</div>
-						<div className="relative">
-							<button className="p-2 rounded-full hover:bg-gray-100">
-								<IoMdNotificationsOutline />
-							</button>
-							<span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
-								48
-							</span>
-						</div>
-						<button className="p-2 rounded-full hover:bg-gray-100">
-							<BsVectorPen />
-						</button>
-					</div> */}
+                   {/*<div className="flex items-center ml-8 space-x-4">*/}
+					{/*	<div className="relative">*/}
+					{/*		<button className="p-2 rounded-full hover:bg-gray-100">*/}
+					{/*			<FaInfo />*/}
+					{/*		</button>*/}
+					{/*		<span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">*/}
+					{/*			39*/}
+					{/*		</span>*/}
+					{/*	</div>*/}
+					{/*	<div className="relative">*/}
+					{/*		<button className="p-2 rounded-full hover:bg-gray-100">*/}
+					{/*			<IoMdNotificationsOutline />*/}
+					{/*		</button>*/}
+					{/*		<span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">*/}
+					{/*			48*/}
+					{/*		</span>*/}
+					{/*	</div>*/}
+					{/*	<button className="p-2 rounded-full hover:bg-gray-100">*/}
+					{/*		<BsVectorPen />*/}
+					{/*	</button>*/}
+					{/*</div>*/}
 
                     {/* Quốc gia và avatar */}
                     <div className="flex items-center ml-8">
